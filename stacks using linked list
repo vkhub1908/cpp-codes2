@@ -1,0 +1,86 @@
+/************************************************************
+ 
+    Following is the structure of the node class 
+ 
+    class Node {
+    	public :
+    	int data;
+    	Node *next;
+
+    	Node(int data) {
+        	this->data = data;
+        	next = NULL;
+    	}
+	};
+
+**************************************************************/
+
+
+class Stack {
+	Node *head;
+    int size;// Define the data members
+   public:
+    Stack() 
+    {
+        head=NULL;
+        size=0;
+        // Implement the Constructor
+    }
+
+	/*----------------- Public Functions of Stack -----------------*/
+
+    int getSize() 
+    {
+        return size;
+        // Implement the getSize() function
+    }
+
+    bool isEmpty() 
+    {
+        return size==0;
+        // Implement the isEmpty() function
+    }
+
+    void push(int element) 
+    {
+        Node *newnode=new Node(element);
+        if(head==NULL)
+        {
+            head=newnode;
+        }
+        else
+        {
+            newnode->next=head;
+            head=newnode;
+        }
+        size++;
+        // Implement the push() function
+    }
+
+    int pop() 
+    {
+        if(head!=NULL)
+        {
+            int p =head->data;
+        	head=head->next;
+        	size--;
+            return p;
+        }
+        else
+            return -1;
+        
+        // Implement the pop() function
+    }
+
+    int top() 
+    {
+        if(head!=NULL)
+        {
+            return head->data;
+        }
+        else
+            return -1;
+        
+        // Implement the top() function
+    }
+};
